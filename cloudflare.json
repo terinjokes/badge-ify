@@ -1,0 +1,62 @@
+{
+    "config": {
+        "assets": {
+            "logos": {
+                "132px": "./public/images/cloudflare_badge-132.png", 
+                "200px": "./public/images/cloudflare_badge-200.png"
+            }
+        }, 
+        "details": {
+            "Category": "Webmaster Tools", 
+            "Language": "English", 
+            "Restrictions": "None"
+        }, 
+        "interface": [
+            {
+                "description": "The time it takes for the badge to fade in.", 
+                "id": "fadeInSeconds", 
+                "name": "Fade In Time (seconds)", 
+                "type": "string"
+            }, 
+            {
+                "description": "The delay between fade in and fade out.", 
+                "id": "fadeOutDelay", 
+                "name": "Delay Time (seconds)", 
+                "type": "string"
+            }, 
+            {
+                "description": "The time it takes for the badge to fade out.", 
+                "id": "fadeOutSeconds", 
+                "name": "Fade Out Time (seconds)", 
+                "type": "string"
+            }
+        ], 
+        "payment": {}
+    }, 
+    "contributors": [
+        {
+            "email": "terin@terinstock.com", 
+            "name": "Terin Stock"
+        }
+    ], 
+    "dependencies": {}, 
+    "description": "Places a 'Protected by Cloudflare' badge at the bottom left of your pages, which fades in and out at configurable times.", 
+    "implements": "AMD", 
+    "keywords": [
+        "webmaster"
+    ], 
+    "licenses": [
+        {
+            "type": "MIT", 
+            "url": "http://www.opensource.org/licenses/MIT"
+        }
+    ], 
+    "main": "./public/javascripts/cloudflare_badge.js", 
+    "name": "Badge-ify", 
+    "repository": {
+        "type": "git", 
+        "url": "https://github.com/terinjokes/Badge-ify.git"
+    }, 
+    "scripts": {}, 
+    "version": "0.0.1"
+}
