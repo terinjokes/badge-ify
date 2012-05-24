@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Home | Badge-ify</title>
-    <link rel="stylesheet" type="text/css" href="/badge-ify/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     <meta name="generator" content="nanoc 3.3.6">
-	<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js" async></script>
+	<script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js" async></script>
 	<script type="text/javascript">
 	window.CloudFlare = window.CloudFlare || [];
 	CloudFlare.push(function(require, define) {
 	    window.CloudFlare = window.CloudFlare || [];
 	    CloudFlare.push(function(require, define) {
-	        CloudFlare.push({ paths: {  "cloudflare_badge":"/badge-ify/javascript/" }});
+	        CloudFlare.push({ paths: {  "cloudflare_badge":"./javascript/" }});
 	        define("cloudflare_badge/config", function() { return { "fadeOutDelay" : "5", "fadeOutSeconds": "1", "fadeInSeconds":"0.5" }});
 	        require(["cloudflare_badge"]);
 	    });
@@ -21,16 +21,9 @@
   <body>
     <div id="main">
       <h1>Badge-ify</h1>
-<p>Let your site's users know that your site is protected by CloudFlare, in the most annoying manner possible.</p>
-
-<p>By showing them a badge, on <em>every</em> page load!</p>
-
-<p><small><b>Disclaimer:</b> The contributors to this project, including Terin Stock, are not respnsible for: (1) support emails from Users complaining about the badge, (2) sudden drop of pageviews or time-on-site, (3) loss of PageRank, BrinRank or SchmidtRank, (4) Users running older versions of Internet Explorer, (5) Users running Mosaic, (5) acts of God, (6) depression, (7) loss of income, or other losses not enumerated here. Badge-ify is provided "as-is" and it's recommended you use it with CloudFlare.</small></p>
-
-<h2>Bugs</h2>
-<p>Badge-ify currently does not support "flash cookies" to remember if the user has visited the site before, and to not show the badge. This is because we are currently unaware of any alternatives methods to keep track of users that is also painfully difficult for them to remove. If you know of one, comment on issue #1.</p>
-
-<p><small><b>Another disclaimer:</b> The views expressed on this page are those of Terin Stock, and do not reflect his beliefs, or those of CloudFlare, his clients or his employeers. You should probably also consider most of this page as a failed attempt at humor. We're still working on getting this Genuine People Personalities technology working.</small></p>
+	  <p>Easily let your users know that your site is protected by CloudFlare with Badge-ify, a CloudFlareJS application.</p>
+	  <p>Badge-ify's fade and delay times are configurable on your CloudFlare dashboard after adding this application. The badge is shown in the lower left side of your site to each user once per day.</p>
+	  <h2><a href="https://github.com/terinjokes/badge-ify/">Fork Me on GitHub »</a></h2>
     </div>
   </body>
 </html>
