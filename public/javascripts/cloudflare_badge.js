@@ -2,7 +2,6 @@ CloudFlare.define("cloudflare_badge", ["cloudflare/dom", "cloudflare_badge/confi
 	var cloudflare_badge = {};
 	cloudflare_badge.fadeElement = function(element, direction) {
 		var setOpacity = function setOpacity(element, level) {
-			console.log("setting opacity: "+level);
 			element.style.opacity = level;
 			element.style.filter = "alpha(opacity=" + (level * 100) + ");";
 			element.style.MozOpacity = level;
@@ -28,8 +27,8 @@ CloudFlare.define("cloudflare_badge", ["cloudflare/dom", "cloudflare_badge/confi
 	}
 	
 	cloudflare_badge.clearBadge = function(element) {
-		console.log("clearing badge");
 		cloudflare_badge.fadeElement(element, "out");
+		cloudflare_badge.setCookie("__cfbadge_shown", "1", 86400);
 	}
 	
 	cloudflare_badge.showBadge = function() {
@@ -44,13 +43,42 @@ CloudFlare.define("cloudflare_badge", ["cloudflare/dom", "cloudflare_badge/confi
 	}
 	
 	cloudflare_badge.setupTimer = function(seconds, element) {
-		console.log("setting timer: "+seconds);
 		window.setTimeout(cloudflare_badge.clearBadge, seconds * 1000, element);
 	}
 	
+	cloudflare_badge.getCookie = function(name) {
+		/* Replace this with cloudflare/user.getCookie */
+		var nameEQ = name + "=";
+		var cookies = document.cookie.split(';');
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie = cookies[i];
+			while (cookie.charAt(0) == ' ') {
+				cookie = cookie.substring(1, cookie.length);
+			}
+			if (cookie.indexOf(nameEQ) == 0) {
+				return cookie.substring(nameEQ.length, cookie.length);
+			}
+		}
+		return null;
+	}
+	
+	cloudflare_badge.setCookie = function(name, value, expireSeconds) {
+		/* Replace this with cloudflare/user.setCookie */
+		var cookie_expire;
+		if (expireSeconds) {
+			cookie_expire = new Date;
+			cookie_expire.setDate(cookie_expire.getDate() + expireSeconds);
+		}
+		var cookie_value = escape(value) + (expireSeconds ? ";expires="+cookie_expire.toUTCString() : "");
+		document.cookie = name + "=" + cookie_value + "; path=/";
+	}
+	
 	dom.onLoad.then(function() {
-		var badge = cloudflare_badge.showBadge();
-		cloudflare_badge.setupTimer(parseFloat(_config.fadeInSeconds) + parseFloat(_config.fadeOutDelay), badge);
+		var cookie = cloudflare_badge.getCookie("__cfbadge_shown");
+		if (cookie == null) {
+			var badge = cloudflare_badge.showBadge();
+			cloudflare_badge.setupTimer(parseFloat(_config.fadeInSeconds) + parseFloat(_config.fadeOutDelay), badge);
+		}
 	});
 	
 	return cloudflare_badge;
