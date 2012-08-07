@@ -67,7 +67,7 @@ CloudFlare.define("cloudflare_badge", ["cloudflare/dom", "cloudflare_badge/confi
 		var cookie_expire;
 		if (expireSeconds) {
 			cookie_expire = new Date;
-			cookie_expire.setDate(cookie_expire.getDate() + expireSeconds);
+			cookie_expire.setSeconds(cookie_expire.getSeconds() + expireSeconds);
 		}
 		var cookie_value = escape(value) + (expireSeconds ? ";expires="+cookie_expire.toUTCString() : "");
 		document.cookie = name + "=" + cookie_value + "; path=/";
